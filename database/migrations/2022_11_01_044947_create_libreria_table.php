@@ -19,10 +19,7 @@ return new class extends Migration
             $table->string('telefono1',30);
             $table->string('telefono2',30);
             $table->string('direccion1',30);
-
-            $table->unsignedInteger('id_municipio');
-            $table->foreign('id_municipio')->references('id')->on('municipio');
-            
+            $table->unsignedInteger('id_municipio');            
             $table->timestamps();
         });
     }

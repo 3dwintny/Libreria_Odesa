@@ -15,15 +15,9 @@ return new class extends Migration
     {
         Schema::create('inventario_en_consignacion', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('cantidad_enviada');
-            $table->dateTime('fecha_egreso');
-
             $table->unsignedInteger('id_libro');
-            $table->foreign('id_libro')->references('id')->on('libro');
-
-            $table->unsignedInteger('id_distribuidor');
-            $table->foreign('id_distribuidor')->references('id')->on('distribuidor');
-
+            $table->double('cantidad_enviada');
+            $table->dateTime('fecha_ingreso');
             $table->timestamps();
         });
     }

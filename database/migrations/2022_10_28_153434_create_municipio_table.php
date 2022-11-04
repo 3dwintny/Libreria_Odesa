@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('municipio', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',30);
+            $table->unsignedInteger('idDepartamento');
             $table->timestamps();
         });
     }

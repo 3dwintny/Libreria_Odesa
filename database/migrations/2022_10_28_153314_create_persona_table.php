@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('foto',100)->nullable();
             $table->date('fecha_fotografia')->nullable();
             $table->string('nit',20)->unique()->nullable();
+            $table->unsignedInteger('idMunicipio');
             $table->timestamps();
         });
     }

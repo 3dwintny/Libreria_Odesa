@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('idCompra');
             $table->unsignedInteger('idLibro');
             $table->integer('cantidadLibros');
-            $table->decimal('precioCompraLibro'); //este valor se almacena en libro en precio Compra
+            $table->decimal('precioCompraLibro')->nullable(); //este valor se almacena en libro en precio Compra
             $table->decimal('totalRegistro');
             $table->timestamps();
         });

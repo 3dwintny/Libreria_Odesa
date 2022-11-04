@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('cantidad');
             $table->date('fecha_egreso');
+            $table->unsignedInteger('idLibro');
+            $table->unsignedInteger('idDistribuidor');
             $table->timestamps();
         });
     }

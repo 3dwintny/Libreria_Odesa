@@ -19,11 +19,13 @@ return new class extends Migration
             $table->unsignedInteger('edicion');
             $table->unsignedInteger('volumen')->nullable();
             $table->unsignedInteger('tomo')->nullable();
-            $table->string('foto',100)->nullable();
+            $table->string('foto',250)->nullable();
             $table->date('fecha_fotografia')->nullable();
             $table->unsignedInteger('paginas')->nullable();
             $table->string('isbn',30)->nullable();
             $table->unsignedInteger('anio')->nullable();
+            $table->decimal('precioCompra')->nullable();
+            $table->decimal('precioVenta')->nullable();
             $table->timestamps();
         });
     }
