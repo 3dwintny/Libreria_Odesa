@@ -17,6 +17,7 @@
         <label class="form-label">Dirección</label>
         <textarea class="form-control" name="direccion" id="" placeholder="Dirección" cols="40" rows="5" required style="resize: none;"></textarea>
         <input type="submit" value="Registrar Proveedor" class="btn btn-primary" data-bs-toggle="button">
+        <input type="button" onclick="window.location='{{ url('proveedores') }}'" value="Cancelar" class="btn btn-danger" data-bs-toggle="button">
     </form>
 </div>
 @endsection
