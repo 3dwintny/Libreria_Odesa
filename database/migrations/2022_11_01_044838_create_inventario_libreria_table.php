@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('inventario_libreria', function (Blueprint $table) {
             $table->increments('id');
             $table->double('cantidad_stock');
-
             $table->unsignedInteger('id_libro');
             $table->foreign('id_libro')->references('id')->on('libro');
             
