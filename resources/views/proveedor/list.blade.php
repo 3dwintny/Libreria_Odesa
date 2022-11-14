@@ -27,7 +27,7 @@
                         <a href="{{route('proveedores.edit',$item->id)}}" style="text-decoration: none; font-weight:bolder; color:#328CC1;">Editar</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" onclick="return eliminarProveedor('Eliminar Proveedor')" class="btn btn-danger" class="btn btn-primary" data-bs-toggle="button">Eliminar</button>
+                        <button type="submit" class="btn" onclick="return eliminarProveedor('Eliminar Proveedor')" style="background-color:#328CC1; color:#FFFFFF; font-weight:bolder;">Eliminar</button>
                     </form>
                 </td>
             </tr>    
