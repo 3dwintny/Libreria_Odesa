@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\CompraLibroController;
+use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('compras',CompraController::class);
+Route::resource('registrar-compras',CompraController::class);
+Route::resource('registrar-compras-libros',CompraLibroController::class);
 Route::resource('proveedores',ProveedorController::class);
 Auth::routes();
 

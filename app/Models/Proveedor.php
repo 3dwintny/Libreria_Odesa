@@ -15,4 +15,8 @@ class Proveedor extends Model
     public function obtenerProveedoresById($id){
         return Proveedor::find($id);
     }
+
+    public function compras_libros() {
+        return $this->hasMany('App\Models\CompraLibro');
+    }
 }
