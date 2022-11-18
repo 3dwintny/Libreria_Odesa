@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Libro;
 use App\Models\Autor;
-
 use Illuminate\Http\Request;
 
 /**
- * Class LibroController
+ * Class AutorController
  * @package App\Http\Controllers
  */
-class LibroController extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +18,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::paginate();
+        $autors = Autor::paginate();
 
-        return view('libro.index', compact('libros'))
-            ->with('i', (request()->input('page', 1) - 1) * $libros->perPage());
+        return view('autor.index', compact('autors'))
+            ->with('i', (request()->input('page', 1) - 1) * $autors->perPage());
     }
 
     /**
@@ -33,8 +31,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        $libro = new Libro();
-        return view('libro.create', compact('libro'));
+        $autor = new Autor();
+        return view('autor.create', compact('autor'));
     }
 
     /**
@@ -45,14 +43,13 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Autor::$rules);
 
-        $libro = Libro::create($request->all());
-        /*        return redirect()->route('libros.index')
-            ->with('success', 'Libro created successfully.');*/
-            return view('autor-libro.create', compact('libro'));
+        $autor = Autor::create($request->all());
 
-        }
+        return redirect()->route('autors.index')
+            ->with('success', 'Autor created successfully.');
+    }
 
     /**
      * Display the specified resource.
@@ -62,9 +59,9 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        $libro = Libro::find($id);
+        $autor = Autor::find($id);
 
-        return view('libro.show', compact('libro'));
+        return view('autor.show', compact('autor'));
     }
 
     /**
@@ -75,26 +72,26 @@ class LibroController extends Controller
      */
     public function edit($id)
     {
-        $libro = Libro::find($id);
+        $autor = Autor::find($id);
 
-        return view('libro.edit', compact('libro'));
+        return view('autor.edit', compact('autor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Libro $libro
+     * @param  Autor $autor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Libro $libro)
+    public function update(Request $request, Autor $autor)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Autor::$rules);
 
-        $libro->update($request->all());
+        $autor->update($request->all());
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro updated successfully');
+        return redirect()->route('autors.index')
+            ->with('success', 'Autor updated successfully');
     }
 
     /**
@@ -104,9 +101,9 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        $libro = Libro::find($id)->delete();
+        $autor = Autor::find($id)->delete();
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro deleted successfully');
+        return redirect()->route('autors.index')
+            ->with('success', 'Autor deleted successfully');
     }
 }
