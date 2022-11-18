@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2" style="">
+        <a href="{{route('proveedores.index')}}" style="text-decoration: none;"><--Regresar--</a>
+        </div>
+    </div>
+    <h1>Editar Proveedor</h1>
     <form action="{{route('proveedores.update',$proveedor->id)}}" method="POST">
         @csrf
         {{method_field('PUT')}}

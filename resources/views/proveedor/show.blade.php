@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2" style="">
+        <a href="{{route('proveedores.index')}}" style="text-decoration: none;"><--Regresar--</a>
+        </div>
+    </div>
+    <h1>Detalle de Proveedor</h1>
     <div class="table-responsive">
         <table class="table">
             <thead class="table-dark">
