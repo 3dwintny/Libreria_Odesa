@@ -3,7 +3,7 @@
 <div class="container">
     <div class="table-responsive">
     <h1>Proveedores</h1>
-    <table class="table table-striped table-hover">
+    <table class="table table-hover">
         <thead class="table-dark">
             <tr>
                 <th>No.</th>
