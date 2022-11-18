@@ -15,13 +15,8 @@ return new class extends Migration
     {
         Schema::create('editorial_libro', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->unsignedInteger('id_autor');
-            $table->foreign('id_autor')->references('id')->on('autor');
-
+            $table->unsignedInteger('id_Editorial');
             $table->unsignedInteger('id_libro');
-            $table->foreign('id_autor')->references('id')->on('libro');
-
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InventarioEnConsignacionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::resource('inventario-en-consignacion', App\Http\Controllers\InventarioEnConsignacionController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

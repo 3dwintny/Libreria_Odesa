@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('id');
             $table->double('cantidad_stock');
             $table->unsignedInteger('id_libro');
-            $table->foreign('id_libro')->references('id')->on('libro');
             
             $table->timestamps();
         });
