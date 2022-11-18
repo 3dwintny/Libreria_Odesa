@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaLibro;
+use App\Models\Categorium;
+use App\Models\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class CategoriaLibroController
@@ -29,10 +32,18 @@ class CategoriaLibroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $categoriaLibro = new CategoriaLibro();
-        return view('categoria-libro.create', compact('categoriaLibro'));
+
+        //obtenemos el id del libro
+        $valor1 = $request->input("id");
+        //buscamos en la DB el libro segun el id recibido
+        $libros = DB::table('libro')->where('id', $valor1)->pluck('titulo','id');
+        //cargamos todos los autores para que se muestren en la vista de create
+        $categorias =Categorium::pluck('nombre_categoria','id');
+        
+        return view('categoria-libro.create', compact('categoriaLibro','libros','categorias'));
     }
 
     /**
@@ -61,7 +72,14 @@ class CategoriaLibroController extends Controller
     {
         $categoriaLibro = CategoriaLibro::find($id);
 
-        return view('categoria-libro.show', compact('categoriaLibro'));
+        $idLib= $categoriaLibro->idLibro;
+        $libroC = Libro::find($idLib);
+
+        $categoriaL= $categoriaLibro->idCategoria;
+        $categoriaC = Categorium::find($categoriaL);
+
+
+        return view('categoria-libro.show', compact('categoriaLibro', 'libroC', 'categoriaC'));
     }
 
     /**
@@ -73,8 +91,11 @@ class CategoriaLibroController extends Controller
     public function edit($id)
     {
         $categoriaLibro = CategoriaLibro::find($id);
+        $idLin = $categoriaLibro->idLibro;
+        $libros = DB::table('libro')->where('id', $idLin)->pluck('titulo','id');
+        $categorias = Categorium::pluck('nombre_categoria','id');
 
-        return view('categoria-libro.edit', compact('categoriaLibro'));
+        return view('categoria-libro.edit', compact('categoriaLibro','libros','categorias'));
     }
 
     /**

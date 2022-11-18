@@ -52,7 +52,7 @@ class Libro extends Model
      *
      * @var array
      */
-    protected $fillable = ['titulo','edicion','volumen','tomo','foto','fecha_fotografia','paginas','isbn','anio','precioCompra','precioVenta','idLibreria'];
+    protected $fillable = ['titulo','edicion','volumen','tomo','foto','fecha_fotografia','paginas','isbn','anio','precioCompra','precioVenta','idLibreria','editorial'];
 
 
     /**

@@ -5,27 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class AutorLibro
+ * Class LibroConsignacion
  *
  * @property $id
+ * @property $cantidad
+ * @property $fecha_egreso
+ * @property $idLibro
+ * @property $idDistribuidor
  * @property $created_at
  * @property $updated_at
- * @property $idLibro
- * @property $idAutor
  *
- * @property Autor $autor
+ * @property Distribuidor $distribuidor
  * @property Libro $libro
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class AutorLibro extends Model
+class LibroConsignacion extends Model
 {
+    public $table = "libro_consignacion";
     
-    public $table = "autor_libro";
-
     static $rules = [
+		'cantidad' => 'required',
+		'fecha_egreso' => 'required',
 		'idLibro' => 'required',
-		'idAutor' => 'required',
+		'idDistribuidor' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,15 +38,15 @@ class AutorLibro extends Model
      *
      * @var array
      */
-    protected $fillable = ['idLibro','idAutor'];
+    protected $fillable = ['cantidad','fecha_egreso','idLibro','idDistribuidor'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function autor()
+    public function distribuidor()
     {
-        return $this->hasOne('App\Models\Autor', 'id', 'idAutor');
+        return $this->hasOne('App\Models\Distribuidor', 'id', 'idDistribuidor');
     }
     
     /**

@@ -1,6 +1,12 @@
 <div class="box box-info padding-1">
     <div class="box-body">
 
+    <div class="form-group">
+            {{ Form::label('Codigo') }}
+            {{ Form::text('id', $libro->id, ['class' => 'form-control' . ($errors->has('id') ? ' is-invalid' : ''), 'placeholder' => 'id']) }}
+            {!! $errors->first('id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+
         <div class="form-group">
             {{ Form::label('TITULO') }}
             {{ Form::text('titulo', $libro->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) }}
@@ -26,9 +32,11 @@
             {{ Form::text('editorial', $libro->editorial, ['class' => 'form-control' . ($errors->has('editorial') ? ' is-invalid' : ''), 'placeholder' => 'Editorial']) }}
             {!! $errors->first('editorial', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
         <div class="form-group">
             {{ Form::label('FOTOGRAFIA') }}
-            {{ Form::file('foto', $libro->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
+            <img src="{{ asset('uploads/libros/'.$libro->foto) }}" width="70px" height="70px" alt="Image">
+            <input type="file" name="foto" class="form-control">
             {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -63,7 +71,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('LIBRERIA') }}
-            {{ Form::select('idLibreria', $librerias,$libro->idLibreria, ['class' => 'form-control' . ($errors->has('idLibreria') ? ' is-invalid' : ''), 'placeholder' => 'Libreria']) }}
+            {{ Form::select('idLibreria',$librerias, $libro->idLibreria, ['class' => 'form-control' . ($errors->has('idLibreria') ? ' is-invalid' : ''), 'placeholder' => 'Libreria']) }}
             {!! $errors->first('idLibreria', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

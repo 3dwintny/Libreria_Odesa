@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('categoria-libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('CREAR CATEGORIA') }}
                                 </a>
                               </div>
                         </div>
@@ -36,8 +36,8 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Idlibro</th>
-										<th>Idcategoria</th>
+										<th>Libro</th>
+										<th>Categoria</th>
 
                                         <th></th>
                                     </tr>
@@ -47,8 +47,8 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $categoriaLibro->idLibro }}</td>
-											<td>{{ $categoriaLibro->idCategoria }}</td>
+											<td>{{ $categoriaLibro->libro->titulo }}</td>
+											<td>{{ $categoriaLibro->categorium->nombre_categoria }}</td>
 
                                             <td>
                                                 <form action="{{ route('categoria-libros.destroy',$categoriaLibro->id) }}" method="POST">

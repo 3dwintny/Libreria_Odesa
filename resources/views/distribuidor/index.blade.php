@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Autor Libro
+    Distribuidor
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Autor Libro') }}
+                                {{ __('DISTRIBUIDOR') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('autor-libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Autor Libro') }}
+                                <a href="{{ route('distribuidors.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Crear nuevo Distribuidor') }}
                                 </a>
                               </div>
                         </div>
@@ -36,27 +36,35 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Libro</th>
-										<th>Autor</th>
+										<th>Nombres</th>
+										<th>Apellidos</th>
+										<th>1er Telefono</th>
+										<th>2do Telefono</th>
+										<th>Correo</th>
+										<th>Direccion</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($autorLibros as $autorLibro)
+                                    @foreach ($distribuidors as $distribuidor)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $autorLibro->libro->titulo }}</td>
-											<td>{{ $autorLibro->autor->nombre_autor }}</td>
+											<td>{{ $distribuidor->nombres }}</td>
+											<td>{{ $distribuidor->apellidos }}</td>
+											<td>{{ $distribuidor->telefono }}</td>
+											<td>{{ $distribuidor->telefono1 }}</td>
+											<td>{{ $distribuidor->correo }}</td>
+											<td>{{ $distribuidor->direccion }}</td>
 
                                             <td>
-                                                <form action="{{ route('autor-libros.destroy',$autorLibro->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('autor-libros.show',$autorLibro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('autor-libros.edit',$autorLibro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('distribuidors.destroy',$distribuidor->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('distribuidors.show',$distribuidor->id) }}"><i class="fa fa-fw fa-eye"></i> VER</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('distribuidors.edit',$distribuidor->id) }}"><i class="fa fa-fw fa-edit"></i> EDITAR</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>BORRAR</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -66,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $autorLibros->links() !!}
+                {!! $distribuidors->links() !!}
             </div>
         </div>
     </div>

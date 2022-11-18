@@ -2,13 +2,13 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('idLibro') }}
-            {{ Form::text('idLibro', $autorLibro->idLibro, ['class' => 'form-control' . ($errors->has('idLibro') ? ' is-invalid' : ''), 'placeholder' => 'Idlibro']) }}
+            {{ Form::label('TITULO DE LIBRO') }}
+            {{ Form::select('idLibro',$libros,$autorLibro->idLibro, ['class' => 'form-control' . ($errors->has('idLibro') ? ' is-invalid' : '')]) }}
             {!! $errors->first('idLibro', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('idAutor') }}
-            {{ Form::text('idAutor', $autorLibro->idAutor, ['class' => 'form-control' . ($errors->has('idAutor') ? ' is-invalid' : ''), 'placeholder' => 'Idautor']) }}
+            {{ Form::label('AUTORES') }}
+            {{ Form::select('idAutor',$autores, $autorLibro->idAutor, ['class' => 'form-control' . ($errors->has('idAutor') ? ' is-invalid' : ''), 'placeholder' => 'Idautor']) }}
             {!! $errors->first('idAutor', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

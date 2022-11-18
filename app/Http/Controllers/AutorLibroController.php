@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Autor;
 use App\Models\AutorLibro;
+use App\Models\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class AutorLibroController
@@ -29,10 +32,18 @@ class AutorLibroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        //obtenemos el id del libro
+        $valor1 = $request->input("id");
+        //buscamos en la DB el libro segun el id recibido
+        $libros = DB::table('libro')->where('id', $valor1)->pluck('titulo','id');
+        //cargamos todos los autores para que se muestren en la vista de create
+        $autores =Autor::pluck('nombre_autor','id');
+        //creamos un nuevo autorLibro
         $autorLibro = new AutorLibro();
-        return view('autor-libro.create', compact('autorLibro'));
+
+         return view('autor-libro.create', compact('autorLibro','libros','autores'));
     }
 
     /**
@@ -61,7 +72,14 @@ class AutorLibroController extends Controller
     {
         $autorLibro = AutorLibro::find($id);
 
-        return view('autor-libro.show', compact('autorLibro'));
+        $idLib= $autorLibro->idLibro;
+        $libroA = Libro::find($idLib);
+
+        $autorL= $autorLibro->idAutor;
+        $autorA = Autor::find($autorL);
+
+
+        return view('autor-libro.show', compact('autorLibro', 'libroA', 'autorA'));
     }
 
     /**
@@ -73,8 +91,11 @@ class AutorLibroController extends Controller
     public function edit($id)
     {
         $autorLibro = AutorLibro::find($id);
+        $idLin = $autorLibro->idLibro;
+        $libros = DB::table('libro')->where('id', $idLin)->pluck('titulo','id');
+        $autores = Autor::pluck('nombre_autor','id');
 
-        return view('autor-libro.edit', compact('autorLibro'));
+        return view('autor-libro.edit', compact('autorLibro', 'libros', 'autores'));
     }
 
     /**

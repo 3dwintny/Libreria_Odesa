@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Autor Libro
+    Update Distribuidor
 @endsection
 
 @section('content')
@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Actualizar Autor de Libro</span>
+                        <span class="card-title">Actualizar Distribuidor</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('autor-libros.update', $autorLibro->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('distribuidors.update', $distribuidor->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('autor-libro.form')
+                            @include('distribuidor.form')
 
                         </form>
                     </div>

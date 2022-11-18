@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Autor Libro</span>
+                            <span class="card-title">Ver autores Libro</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('autor-libros.index') }}"> Back</a>
@@ -22,11 +22,11 @@
                         
                         <div class="form-group">
                             <strong>Idlibro:</strong>
-                            {{ $autorLibro->idLibro }}
+                            {{ $libroA->titulo }}
                         </div>
                         <div class="form-group">
                             <strong>Idautor:</strong>
-                            {{ $autorLibro->idAutor }}
+                            {{ $autorA->nombre_autor }}
                         </div>
 
                     </div>
