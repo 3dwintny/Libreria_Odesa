@@ -3,7 +3,7 @@
 <div class="container">
     <div class="d-flex flex-row-reverse">
         <div class="p-2" style="">
-        <a href="{{route('proveedores.index')}}" style="text-decoration: none;"><--Regresar--</a>
+        <a href="{{route('proveedores.index')}}" style="text-decoration: none;font-weight:bolder"><--Regresar--</a>
         </div>
     </div>
     <h1>Detalle de Proveedor</h1>
