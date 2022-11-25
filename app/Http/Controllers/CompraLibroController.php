@@ -8,6 +8,7 @@ use App\Models\RegistroCompra;
 use App\Models\Proveedor;
 use App\Models\Libro;
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
 
 class CompraLibroController extends Controller
 {
@@ -112,5 +113,81 @@ class CompraLibroController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function buscarFecha(Request $request){
+        $inicio = $request->inicial;
+        $fin = $request->final;
+        $compras = RegistroCompra::with('libro','compra_libro')->get();
+        $encabezado = CompraLibro::whereBetween('fecha_hora', [$inicio,$fin])->get();
+        if(count($encabezado)>0){
+            return view('compra_libro.list',compact('compras','encabezado'));
+        }
+        else{
+            return view('compra_libro.sinresultados');
+        }
+    }
+
+    public function buscarProveedor(Request $r){
+        $compras = RegistroCompra::with('libro','compra_libro')->get();
+        $encabezado = CompraLibro::all();
+        $nombres = $r->nombres;
+        $apellidos = $r->apellidos;
+        $hallarApellido = array();
+        $hallarNombre = array();
+        $hallarCompleto = array();
+        if($nombres==""){
+            $hallarApellido = Proveedor::where('apellidos','LIKE',"%{$apellidos}%")->get();
+        }
+        else if($apellidos==""){
+            $hallarNombre = Proveedor::where('nombres','LIKE',"%{$nombres}%" )->get();
+        }
+        else{
+            $hallarCompleto = Proveedor::where('nombres',$nombres)
+            ->where('apellidos',$apellidos)
+            ->get('id');
+        }
+        $control = 0;
+        $almacenar = array(); 
+        if(count($hallarCompleto)>0){
+            foreach($encabezado as $item){
+                if($item->proveedor_id == $hallarCompleto[0]->id)
+                {
+                    $control = $item->proveedor_id;
+                }
+            }
+
+            if($control!=0){
+                $encabezado = CompraLibro::where('proveedor_id',$control)->get();
+                return view('compra_libro.list',compact('compras','encabezado'));
+            }
+        }
+        else if(count($hallarNombre)>0){
+            foreach($encabezado as $item){
+                foreach($hallarNombre as $n){
+                    if($item->proveedor_id == $n->id)
+                    {
+                        array_push($almacenar,$item);
+                    }
+                }
+            }
+            $encabezado = $almacenar;
+            return view('compra_libro.list',compact('compras','encabezado'));
+        }
+        else if(count($hallarApellido)>0){
+            foreach($encabezado as $item){
+                foreach($hallarApellido as $a){
+                    if($item->proveedor_id == $a->id)
+                    {
+                        array_push($almacenar,$item);
+                    }
+                }
+            }
+            $encabezado = $almacenar;
+            return view('compra_libro.list',compact('compras','encabezado'));
+        }
+        else{
+            return view('compra_libro.sinresultados');
+        }
     }
 }

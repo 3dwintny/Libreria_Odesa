@@ -4,7 +4,7 @@
     
     <div class="d-flex flex-row-reverse">
         <div class="p-2" style="">
-        <a href="{{route('registrar-compras-libros.index')}}" style="text-decoration: none; font-weight:bolder;"><--Regresar--</a>
+        <a href="{{route('registrar-compras-libros.index')}}" style="text-decoration: none;"><--Regresar--</a>
         </div>
     </div>
     <h1>Detalle de Compra</h1>
