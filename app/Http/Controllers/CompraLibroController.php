@@ -121,7 +121,7 @@ class CompraLibroController extends Controller
         $compras = RegistroCompra::with('libro','compra_libro')->get();
         $encabezado = CompraLibro::whereBetween('fecha_hora', [$inicio,$fin])->get();
         if(count($encabezado)>0){
-            return view('compra_libro.list',compact('compras','encabezado'));
+            return view('compra_libro.fecha',compact('compras','encabezado'));
         }
         else{
             return view('compra_libro.sinresultados');
@@ -145,7 +145,7 @@ class CompraLibroController extends Controller
         else{
             $hallarCompleto = Proveedor::where('nombres',$nombres)
             ->where('apellidos',$apellidos)
-            ->get('id');
+            ->get();
         }
         $control = 0;
         $almacenar = array(); 
@@ -159,7 +159,7 @@ class CompraLibroController extends Controller
 
             if($control!=0){
                 $encabezado = CompraLibro::where('proveedor_id',$control)->get();
-                return view('compra_libro.list',compact('compras','encabezado'));
+                return view('compra_libro.proveedor',compact('compras','encabezado'));
             }
         }
         else if(count($hallarNombre)>0){
@@ -172,7 +172,7 @@ class CompraLibroController extends Controller
                 }
             }
             $encabezado = $almacenar;
-            return view('compra_libro.list',compact('compras','encabezado'));
+            return view('compra_libro.proveedor',compact('compras','encabezado'));
         }
         else if(count($hallarApellido)>0){
             foreach($encabezado as $item){
@@ -184,7 +184,7 @@ class CompraLibroController extends Controller
                 }
             }
             $encabezado = $almacenar;
-            return view('compra_libro.list',compact('compras','encabezado'));
+            return view('compra_libro.proveedor',compact('compras','encabezado'));
         }
         else{
             return view('compra_libro.sinresultados');

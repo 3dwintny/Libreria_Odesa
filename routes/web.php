@@ -35,6 +35,7 @@ Route::resource('registrar-compras-libros',CompraLibroController::class);
 Route::post('registrar-compras-libros/fecha',[CompraLibroController::class,'buscarFecha'])->name('buscarFecha');
 Route::post('registrar-compras-libros/proveedor',[CompraLibroController::class,'buscarProveedor'])->name('buscarProveedor');
 Route::resource('proveedores',ProveedorController::class);
+Route::post('proveedores/proveedor',[ProveedorController::class,'buscarProveedores'])->name('buscarProveedores');
 Route::resource('libreria', LibreriumController::class);
 Route::resource('deptoLibreria', RelacionLibreriaDepartamento::class);
 Route::resource('libros', LibroController::class);

@@ -96,4 +96,39 @@ class ProveedorController extends Controller
         $proveedor->delete();
         return redirect()->action([ProveedorController::class,'index']);
     }
+
+    public function buscarProveedores(Request $r)
+    {
+        $nombres = $r->nombres;
+        $apellidos = $r->apellidos;
+        $hallarApellido = array();
+        $hallarNombre = array();
+        $hallarCompleto = array();
+        if($nombres==""){
+            $hallarApellido = Proveedor::where('apellidos','LIKE',"%{$apellidos}%")->get();
+        }
+        else if($apellidos==""){
+            $hallarNombre = Proveedor::where('nombres','LIKE',"%{$nombres}%" )->get();
+        }
+        else{
+            $hallarCompleto = Proveedor::where('nombres',$nombres)
+            ->where('apellidos',$apellidos)
+            ->get();
+        }
+        if(count($hallarCompleto)>0){
+            $proveedores = $hallarCompleto;
+            return view('proveedor.proveedor',compact('proveedores'));
+        }
+        else if(count($hallarNombre)>0){
+            $proveedores = $hallarNombre;
+            return view('proveedor.proveedor',compact('proveedores'));
+        }
+        else if(count($hallarApellido)>0){
+            $proveedores = $hallarApellido;
+            return view('proveedor.proveedor',compact('proveedores'));
+        }
+        else{
+            return view('proveedor.sinresultados');
+        }
+    }
 }

@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="d-flex flex-row-reverse">
-            <div class="p-2" style="">
-                <a href="{{route('registrar-compras-libros.index')}}" style="text-decoration: none; font-weight:bolder;">Listado de Compras</a>
-            </div>
-        </div>
-
         <h1>Compras</h1>
     </div>
         <div class="container" style="background-color: #EFEFEF; border-radius:20px;">   
