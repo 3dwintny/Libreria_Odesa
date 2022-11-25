@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <h1>Resultado de Búsqueda</h1>
+        <h1>Resultado de la Búsqueda</h1>
     </div>
         <div class="container" style="background-color: #EFEFEF; border-radius:20px;">   
         <div class="d-flex flex-row mb-3">

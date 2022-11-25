@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <h1>Proveedores</h1>
+    <h1>Resultado de la Búsqueda</h1>
 </div>
 
 <div class="container" style="background-color: #EFEFEF; border-radius:20px;">   
