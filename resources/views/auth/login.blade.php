@@ -36,7 +36,7 @@
                                             <label class="form-check-label" for="rememberMe">Recordarmelo</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Ingresar</button>
+                                            <button type="submit" class="btn btn-lg btn-lg w-100 mt-4 mb-0, text-white" style="background-color: #0b3c5d;">Ingresar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -58,9 +58,9 @@
                         <div
                             class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+                                style="background-image: url('https://wmagazin.com/wp-content/uploads/2021/03/ES-ppal-nuevas-librerias-editoriales-pandemia-unano.jpg');
               background-size: cover;">
-                                <span class="mask bg-gradient-primary opacity-6"></span>
+                                <span class="mask opacity-8" style="background-color: #0b3c5d;"></span>
                                 <h4 class="mt-5 text-white font-weight-bolder position-relative">¡BIENVENIDO A LIBRERIA ODESA!</h4>
                                 <p class="text-white position-relative">Cuanto más fácil se vea la escritura, más esfuerzo puso el escritor en el proceso.</p>
                             </div>
@@ -70,4 +70,6 @@
             </div>
         </section>
     </main>
+
+    <!--  Estilo de la imagen bg-gradient-info -->
 @endsection

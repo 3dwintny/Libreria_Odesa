@@ -1,14 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InventarioLibreriumController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AutorController;
+use App\Http\Controllers\LibroController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\EditorialController;
+use App\Http\Controllers\LibreriumController;
+use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\AutorLibroController;
+use App\Http\Controllers\CategoriumController;
+use App\Http\Controllers\CompraLibroController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\CategoriaLibroController;
+use App\Http\Controllers\RelacionLibreriaDepartamento;
+use App\Http\Controllers\InventarioLibreriumController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +38,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/* Route::resource('inventario', InventarioLibreriumController::class); */
 
+/* Route::resource('inventario', InventarioLibreriumController::class); */
+    Route::resource('libros', 'App\Http\Controllers\LibroController');
 /* use App\Http\Controllers\InventarioLibreriumController; */
-Route::resource('inventario', InventarioLibreriumController::class);
+    Route::resource('inventario', InventarioLibreriumController::class);
+    //Route::resource('registrar-compras',CompraController::class);
+    Route::resource('registrar-compras-libros',CompraLibroController::class);
+    Route::resource('proveedores',ProveedorController::class);
+    Route::resource('libreria', LibreriumController::class);
+    Route::resource('deptoLibreria', RelacionLibreriaDepartamento::class);
+    //Route::resource('libros', LibroController::class);
+    Route::resource('categoria', CategoriumController::class);
+    Route::resource('autors', AutorController::class);
+    Route::resource('categoria-libros', CategoriaLibroController::class);
+    Route::resource('autor-libros', AutorLibroController::class);
+    Route::resource('departamentos', DepartamentoController::class);
+    Route::resource('municipios', MunicipioController::class);
+    Route::resource('editorials', EditorialController::class);
+    Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
+    Route::get('cre',[CompraLibroController::class,'create'])->name('cre');
 /* Route::group(['middleware' => 'auth'], function () {
 
 } */
@@ -45,13 +72,35 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    /* Uso de los controladores cuando creamos un usuario */
+    Route::resource('user', 'App\Http\Controllers\UserProfileController', ['except' => ['show']]);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
+    Route::get('cre',[CompraLibroController::class,'create'])->name('cre');
+    Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
+    Route::resource('inventario', InventarioLibreriumController::class);
+    //Route::resource('registrar-compras',CompraController::class);
+    Route::resource('registrar-compras-libros',CompraLibroController::class);
+    Route::resource('proveedores',ProveedorController::class);
+    Route::resource('libreria', LibreriumController::class);
+    Route::resource('deptoLibreria', RelacionLibreriaDepartamento::class);
+    Route::resource('libros', LibroController::class);
+    Route::resource('categoria', CategoriumController::class);
+    Route::resource('autors', AutorController::class);
+    Route::resource('categoria-libros', CategoriaLibroController::class);
+    Route::resource('autor-libros', AutorLibroController::class);
+    Route::resource('departamentos', DepartamentoController::class);
+    Route::resource('municipios', MunicipioController::class);
+    Route::resource('editorials', EditorialController::class);
+
     //Route::get('inventario', [InventarioLibreriumController::class, 'index'])->name('inventario');
-
-
-
 });
 
-Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('libros', 'App\Http\Controllers\LibroController');
+});
+
+
 
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
@@ -62,6 +111,3 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
-
-
-

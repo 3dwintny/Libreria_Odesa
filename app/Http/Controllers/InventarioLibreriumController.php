@@ -32,7 +32,7 @@ class InventarioLibreriumController extends Controller
     public function create()
     {
         $inventarioLibrerium = new InventarioLibrerium();
-        return view('inventario.create', compact('inventarioLibrerium'));
+        return view('inventario.crear', compact('inventarioLibrerium'));
     }
 
     /**

@@ -15,8 +15,8 @@
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-laptop text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">INICIO</span>
                 </a>
@@ -37,17 +37,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('inventario.index') }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'INVETARIO') == true ? 'active' : '' }}" href="{{ route('inventario.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-books text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Inventario Propio</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('inventario.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-books text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Inventario en consignacion</span>
                 </a>
@@ -55,7 +55,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-circle-08 text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Usuarios</span>
                 </a>
@@ -63,23 +63,31 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-money-coins text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Ventas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('registrar-compras-libros.index') }}">
+                    <div class="icon icon-ca icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-cart text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Compras</span>
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('libros.index') }}">
+                    <div class="icon icon-ca icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-book-bookmark text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Libros</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-briefcase-24 text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Proveedores</span>
                 </a>
@@ -87,7 +95,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
+                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Distribuidores</span>
                 </a>

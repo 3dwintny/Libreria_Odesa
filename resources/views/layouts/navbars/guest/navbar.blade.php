@@ -26,16 +26,15 @@
                                     Dashboard
                                 </a>
                             </li>
-                           <!--  <li class="nav-item">
-                                <a class="nav-link me-2" href="{{ route('register') }}">
-                                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    Sign Up
-                                </a>
-                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link me-2" href="{{ route('login') }}">
                                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                                     Ingresar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class=" nav-link me-2 btn btn-lg btn-lg w-100 mt-1 mb-0, text-white" style="background-color:#0b3c5d ;" href="{{ route('register') }}">
+                                    Catálogo
                                 </a>
                             </li>
                         </ul

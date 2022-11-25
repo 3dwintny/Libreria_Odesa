@@ -10,13 +10,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Inventario Librerium') }}
+                                {{ __('Inventario Libreria') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('inventario.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
+                                <a href="{{ route( 'inventario-crear') }}" class="btn btn-sm float-right, text-light" style="background-color: #0b3c5d ;"  data-placement="left">
+                                {{ __('Nuevo') }}</a>
                               </div>
                         </div>
                     </div>

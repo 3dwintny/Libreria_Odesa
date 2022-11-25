@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Inventario Librerium
+Update Inventario Librerium
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
-
+<section class="content container-fluid">
+    <div class="">
+        <div class="col-md-12">
+            <div class="card">
                 @includeif('partials.errors')
 
                 <div class="card card-default">
@@ -16,7 +16,8 @@
                         <span class="card-title">Update Inventario Librerium</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('inventario.update', $inventarioLibrerium->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('inventario.update', $inventarioLibrerium->id) }}"
+                            role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
@@ -26,6 +27,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 @endsection
