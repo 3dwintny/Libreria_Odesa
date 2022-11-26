@@ -56,7 +56,7 @@ Auth::routes();
     Route::resource('departamentos', DepartamentoController::class);
     Route::resource('municipios', MunicipioController::class);
     Route::resource('editorials', EditorialController::class);
-    Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
+    //Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
     Route::get('cre',[CompraLibroController::class,'create'])->name('cre');
 /* Route::group(['middleware' => 'auth'], function () {
 
@@ -77,7 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
     Route::get('cre',[CompraLibroController::class,'create'])->name('cre');
-    Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
+    //Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
     Route::resource('inventario', InventarioLibreriumController::class);
     //Route::resource('registrar-compras',CompraController::class);
     Route::resource('registrar-compras-libros',CompraLibroController::class);

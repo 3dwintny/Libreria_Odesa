@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'User Management'])
+<!-- @include('layouts.navbars.auth.topnav', ['title' => 'User Management']) -->
 <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -14,7 +14,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route( 'inventario-crear') }}" class="btn btn-sm float-right, text-light" style="background-color: #0b3c5d ;"  data-placement="left">
+                                <a href="{{ route( 'inventario.create') }}" class="btn btn-sm float-right, text-light" style="background-color: #0b3c5d ;"  data-placement="left">
                                 {{ __('Nuevo') }}</a>
                               </div>
                         </div>

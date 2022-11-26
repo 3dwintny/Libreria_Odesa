@@ -100,7 +100,7 @@
                             </div>
                             <button onclick="guardarCompra" type="submit" class="btn btn-primary mb-3"
                                 id="guardar">Guardar</button>
-                            <button type="submit" onclick="window.location='{{ url('proveedores') }}'"
+                            <button type="submit" onclick="window.location='{{ url('registrar-compras-libros') }}'"
                                 class="btn btn-danger mb-3" data-bs-toggle="button">Cancelar</button>
                         </form>
                     </div>
@@ -109,7 +109,7 @@
         </div>
     </div>
 </div>
-@endsection
+
 
 <script>
 $(document).ready(function() {
@@ -178,3 +178,4 @@ function eliminar(index) {
     evaluar();
 }
 </script>
+@endsection
