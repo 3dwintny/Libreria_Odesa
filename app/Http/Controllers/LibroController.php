@@ -21,7 +21,7 @@ class LibroController extends Controller
     public function index()
     {
         $libros = Libro::paginate();
-
+        
         return view('libro.index', compact('libros'))
             ->with('i', (request()->input('page', 1) - 1) * $libros->perPage());
     }

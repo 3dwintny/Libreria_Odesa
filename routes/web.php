@@ -11,6 +11,7 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RelacionLibreriaDepartamento;
 use App\Models\Departamento;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +42,8 @@ Route::resource('autor-libros', AutorLibroController::class);
 Route::resource('departamentos', DepartamentoController::class);
 Route::resource('municipios', MunicipioController::class);
 Route::resource('editorials', EditorialController::class);
+Route::resource('venta', VentaController::class);
+
+
 
 

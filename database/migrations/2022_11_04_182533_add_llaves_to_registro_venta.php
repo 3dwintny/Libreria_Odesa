@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('registro_venta', function (Blueprint $table) {
             $table->foreign('idLibro')->references('id')->on('libro');
-            $table->foreign('idVenta')->references('id')->on('venta');
+            $table->foreign('ventum_id')->references('id')->on('venta');
         });
     }
 

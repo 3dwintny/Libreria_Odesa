@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('registro_venta', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('idVenta');
+            //cambio de idventa a ventum_id por Relaciones atumaticas de make crud
+            $table->unsignedInteger('ventum_id');
             $table->unsignedInteger('idLibro');
             $table->integer('cantidadLibros');
-            $table->decimal('precioLibro'); 
+            //$table->decimal('precioLibro'); --> precio libro se obtine con la relacion en idlibro 
             $table->decimal('subtotal');
-            $table->decimal('descuento');
-            $table->decimal('recargo');
-            $table->decimal('totalRegistro');
+            //$table->decimal('descuento');
+            //$table->decimal('recargo');
+            //$table->decimal('totalRegistro');
 
             $table->timestamps();
         });
