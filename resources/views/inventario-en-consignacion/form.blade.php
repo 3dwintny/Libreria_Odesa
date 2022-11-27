@@ -24,6 +24,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#0b3c5d ;">Submit</button>
     </div>
 </div>

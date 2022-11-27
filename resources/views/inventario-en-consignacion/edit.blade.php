@@ -16,11 +16,11 @@
                         <span class="card-title">Update Inventario En Consignacion</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('inventario-en-consignacion.update', $inventarioEnConsignacion->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('consignacion.update', $inventarioEnConsignacion->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('inventario-en-consignacion.form')
+                            @include('consignacion.form')
 
                         </form>
                     </div>

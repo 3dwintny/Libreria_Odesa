@@ -1,22 +1,19 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Inventario En Consignacion
-@endsection
-
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+@include('layouts.navbars.auth.topnav', ['title' => 'inventario en consignacion'])
 
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
                 @includeif('partials.errors')
-
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Inventario En Consignacion</span>
+                        <span class="card-title">Ingresar Inventario en consignacion</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('inventario-en-consignacion.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('consignacion.store') }}" role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('inventario-en-consignacion.form')
@@ -26,5 +23,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection

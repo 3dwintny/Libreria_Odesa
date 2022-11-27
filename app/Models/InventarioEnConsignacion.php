@@ -22,11 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class InventarioEnConsignacion extends Model
 {
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 76422c3287087814d14d594c566fa8b024b323fd
     static $rules = [
 		'id_libro' => 'required',
 		'cantidad_enviada' => 'required',
@@ -51,11 +46,6 @@ class InventarioEnConsignacion extends Model
     {
         return $this->hasOne('App\Models\Distribuidor', 'id', 'idDistribuidor');
     }
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 76422c3287087814d14d594c566fa8b024b323fd
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -63,10 +53,5 @@ class InventarioEnConsignacion extends Model
     {
         return $this->hasOne('App\Models\Libro', 'id', 'id_libro');
     }
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 76422c3287087814d14d594c566fa8b024b323fd
 
 }
