@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'firstname' => 'Admin',
             'lastname' => 'Admin',
-            'email' => 'admin@argon.com',
+            'email' => 'admin@libodesa.com',
             'password' => bcrypt('secret')
         ]);
     }
