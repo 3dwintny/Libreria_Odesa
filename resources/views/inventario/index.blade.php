@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- @include('layouts.navbars.auth.topnav', ['title' => 'User Management']) -->
+@include('layouts.navbars.auth.topnav', ['title' => 'Inventario Libreria'])
 <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">

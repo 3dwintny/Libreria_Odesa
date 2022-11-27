@@ -16,13 +16,14 @@
     <!-- Nucleo Icons -->
     <link href="{{ asset('./assets') }}/css/nucleo-icons.css?v=1.0.0" rel="stylesheet" />
     <link href="{{ asset('./assets') }}/css/nucleo-svg.cssv?=1.0.0" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{ asset('assets') }}/css/nucleo-svg.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets') }}/css/argon-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <!-- Css de boostrap para mejorar los formularos -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
 
 <body class="{{ $class ?? '' }}">

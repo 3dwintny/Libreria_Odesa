@@ -16,7 +16,12 @@
 
                         <div class="float-right">
                             <a href="{{ route('libros.create') }}" style="background-color: #0b3c5d;" class="btn btn-sm float-right" data-placement="left">
-                                {{ __('Create New') }}
+                                {{ __('Crear Nuevo') }}
+                            </a>
+                        </div>
+                        <div class="float-right">
+                            <a href="{{ route('libros.create') }}" style="background-color: #0b3c5d;" class="btn btn-sm float-right" data-placement="left">
+                                {{ __('Crear Nuevo') }}
                             </a>
                         </div>
                     </div>

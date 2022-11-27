@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'User Management'])
+@include('layouts.navbars.auth.topnav', ['title' => 'Compras'])
 
 <div class="container-fluid">
     <div class="row">
@@ -15,7 +15,7 @@
                         </span>
 
                         <div class="float-right">
-                            <a href="{{ route('cre') }}" class="btn btn-sm float-right, text-light" style="background-color: #0b3c5d ;"
+                            <a href="{{ route('registrar-compras-libros.create') }}" class="btn btn-sm float-right, text-light" style="background-color: #0b3c5d ;"
                                 data-placement="left">
                                 {{ __('Nueva compra') }}
                             </a>

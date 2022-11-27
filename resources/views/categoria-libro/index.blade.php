@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('categoria-libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Idlibro</th>
 										<th>Idcategoria</th>
 
@@ -46,7 +46,7 @@
                                     @foreach ($categoriaLibros as $categoriaLibro)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $categoriaLibro->idLibro }}</td>
 											<td>{{ $categoriaLibro->idCategoria }}</td>
 
