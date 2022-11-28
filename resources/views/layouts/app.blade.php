@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img') }}/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('img') }}/favicon.png">
     <title>
-        Argon Dashboard 2 by Creative Tim
+        Libreria Odesa
     </title>
     <!-- Script para creacion de compras --Usado por Oscar -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

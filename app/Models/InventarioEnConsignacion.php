@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class InventarioEnConsignacion extends Model
 {
-
     static $rules = [
 		'id_libro' => 'required',
 		'cantidad_enviada' => 'required',
@@ -47,7 +46,6 @@ class InventarioEnConsignacion extends Model
     {
         return $this->hasOne('App\Models\Distribuidor', 'id', 'idDistribuidor');
     }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -55,6 +53,5 @@ class InventarioEnConsignacion extends Model
     {
         return $this->hasOne('App\Models\Libro', 'id', 'id_libro');
     }
-
 
 }

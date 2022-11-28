@@ -49,7 +49,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}"
-                    href="{{ route('inventario.index') }}">
+                    href="{{ route('consignacion.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-books text-dark text-sm opacity-10"></i>
@@ -104,12 +104,21 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                {{ __('Registrar Entrenador') }}
+                                {{ __('Autores') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                {{ __('Listado de Entrenadores') }}
+                                {{ __('Categorias') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse show" id="navbar-libos">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('editorials.index') }}">
+                                {{ __('Editoriales') }}
                             </a>
                         </li>
                     </ul>

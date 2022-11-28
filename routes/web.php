@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
@@ -21,6 +22,8 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\CategoriaLibroController;
 use App\Http\Controllers\RelacionLibreriaDepartamento;
 use App\Http\Controllers\InventarioLibreriumController;
+use App\Http\Controllers\InventarioEnConsignacionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +59,7 @@ Auth::routes();
     Route::resource('departamentos', DepartamentoController::class);
     Route::resource('municipios', MunicipioController::class);
     Route::resource('editorials', EditorialController::class);
+    Route::resource('consignacion',InventarioEnConsignacionController::class);
     //Route::get('inventario-crear', [InventarioLibreriumController::class, 'create'])->name('inventario-crear');
 /* Route::group(['middleware' => 'auth'], function () {
 
@@ -90,6 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('departamentos', DepartamentoController::class);
     Route::resource('municipios', MunicipioController::class);
     Route::resource('editorials', EditorialController::class);
+    
 
     //Route::get('inventario', [InventarioLibreriumController::class, 'index'])->name('inventario');
 });
