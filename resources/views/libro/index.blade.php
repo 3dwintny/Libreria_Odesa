@@ -1,7 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- @include('layouts.navbars.auth.topnav', ['title' => 'User Management']) -->
+@include('layouts.navbars.auth.topnav', ['title' => 'Libros'])
+
+<div class="card shadow-lg mx-4">
+    <div class="card-body p-3">
+        <div class="row gx-8">
+            <div class="col-md-4 mb-2">
+                <span id="card_title ">
+                    {{ __('Autor') }}
+                </span>
+                <div class="float-right">
+                    <a href="{{route('autors.index')}}" style="background-color: #d9b310;"
+                        class="btn btn-sm float-right, text-dark" data-placement="left">
+                        {{ __('Ir a Autor') }}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <span id="card_title">
+                    {{ __('Editorial') }}
+                </span>
+                <div class="float-right">
+                    <a href="{{ route('editorials.index') }}" style="background-color: #d9b310;"
+                        class="btn btn-sm float-right, text-dark" data-placement="left">
+                        {{ __('ir a Editorial') }}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <span id="card_title">
+                    {{ __('Categoria') }}
+                </span>
+                <div class="float-right">
+                    <a href="{{route('categoria-libros.index')}}" style="background-color: #d9b310;"
+                        class="btn btn-sm float-right, text-dark" data-placement="left">
+                        {{ __('Ir a categorias') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="horizontal dark mt-1">
 
 <div class="container-fluid">
     <div class="row">
@@ -15,13 +56,9 @@
                         </span>
 
                         <div class="float-right">
-                            <a href="{{ route('libros.create') }}" style="background-color: #0b3c5d;" class="btn btn-sm float-right" data-placement="left">
-                                {{ __('Crear Nuevo') }}
-                            </a>
-                        </div>
-                        <div class="float-right">
-                            <a href="{{ route('libros.create') }}" style="background-color: #0b3c5d;" class="btn btn-sm float-right" data-placement="left">
-                                {{ __('Crear Nuevo') }}
+                            <a href="{{ route('libros.create') }}" class="btn btn-primary btn-sm float-right"
+                                data-placement="left" style="background-color:#0b3c5d ;">
+                                {{ __('CREAR NUEVO LIBRO') }}
                             </a>
                         </div>
                     </div>
@@ -34,24 +71,17 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover" name="id">
                             <thead class="thead">
                                 <tr>
-                                    <th>No</th>
-
-                                    <th>Titulo</th>
-                                    <th>Edicion</th>
-                                    <th>Volumen</th>
-                                    <th>Tomo</th>
-                                    <th>Foto</th>
-                                    <th>Fecha Fotografia</th>
-                                    <th>Paginas</th>
-                                    <th>Isbn</th>
-                                    <th>Anio</th>
-                                    <th>Preciocompra</th>
-                                    <th>Precioventa</th>
-                                    <th>Idlibreria</th>
-
+                                    <th>NO.</th>
+                                    <th>TITULO</th>
+                                    <th>EDICION</th>
+                                    <th>VOLUMEN</th>
+                                    <th>TOMO</th>
+                                    <th>ACCIONES DE LIBRO</th>
+                                    <th>ACCION DE AUTOR</th>
+                                    <th>ACCION DE CATEGORIA</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -59,28 +89,44 @@
                                 @foreach ($libros as $libro)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-
                                     <td>{{ $libro->titulo }}</td>
                                     <td>{{ $libro->edicion }}</td>
                                     <td>{{ $libro->volumen }}</td>
                                     <td>{{ $libro->tomo }}</td>
-                                    <!--											<td>{{ $libro->foto }}</td> -->
-                                    <!--											<td>{{ $libro->fecha_fotografia }}</td> -->
-                                    <td>{{ $libro->paginas }}</td>
-                                    <td>{{ $libro->isbn }}</td>
-                                    <td>{{ $libro->anio }}</td>
-                                    <td>{{ $libro->precioCompra }}</td>
-                                    <td>{{ $libro->precioVenta }}</td>
-                                    <td>{{ $libro->idLibreria }}</td>
-                                    <!--											<td>{{ $libro->fecha_fotografia }}</td> -->
-
                                     <td>
                                         <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <a class="btn btn-sm btn-primary "
+                                                href="{{ route('libros.show',$libro->id) }}"><i
+                                                    class="fa fa-fw fa-eye"></i> Ver</a>
+                                            <a class="btn btn-sm btn-success"
+                                                href="{{ route('libros.edit',$libro->id) }}"><i
+                                                    class="fa fa-fw fa-edit"></i> Editar</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                                    class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('autor-libros.create',$libro->id) }}" method="GET">
+                                            <input type="hidden" id="uname" name="id" value="{{$libro->id}}"
+                                                readonly="true">
+                                            <button type="submit" class="btn btn-sm btn-primary "><i
+                                                    class="fa fa-fw fa-trash"></i>Agregar Autor</button>
+                                            <a href="{{ route('autors.create') }}"
+                                                class="btn btn-primary btn-sm float-right"
+                                                data-placement="left">{{ __('Crear Autor') }}</a>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('categoria-libros.create',$libro->id) }}" method="GET">
+                                            <input type="hidden" id="uname" name="id" value="{{$libro->id}}"
+                                                readonly="true">
+                                            <button type="submit" class="btn btn-sm btn-primary "><i
+                                                    class="fa fa-fw fa-trash"></i>Agregar Categoria</button>
+                                            <a href="{{ route('categoria.create') }}"
+                                                class="btn btn-primary btn-sm float-right"
+                                                data-placement="left">{{ __('Crear Categoria') }}</a>
                                         </form>
                                     </td>
                                 </tr>

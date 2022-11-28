@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Compras'])
 

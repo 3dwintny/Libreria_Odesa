@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use App\Models\Autor;
-
+use App\Models\AutorLibro;
+use App\Models\CategoriaLibro;
+use App\Models\Librerium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 /**
  * Class LibroController
@@ -34,7 +38,9 @@ class LibroController extends Controller
     public function create()
     {
         $libro = new Libro();
-        return view('libro.create', compact('libro'));
+        $librerias = Librerium::pluck('nombre_libreria','id');
+
+        return view('libro.create', compact('libro','librerias'));
     }
 
     /**
@@ -46,13 +52,21 @@ class LibroController extends Controller
     public function store(Request $request)
     {
         request()->validate(Libro::$rules);
-
+        //creamos el libro
+        $libro = new Libro;
         $libro = Libro::create($request->all());
-        /*        return redirect()->route('libros.index')
-            ->with('success', 'Libro created successfully.');*/
-            return view('autor-libro.create', compact('libro'));
 
+        if ($request->hasfile('foto')) {
+            $file = $request->file('foto');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/libros/', $filename);
+            $libro->foto = $filename;
+            //echo $libro->foto;
+            $libro->save();
         }
+        return redirect()->route('libros.index')->with('success', 'Libro created successfully.');
+    }
 
     /**
      * Display the specified resource.
@@ -63,8 +77,34 @@ class LibroController extends Controller
     public function show($id)
     {
         $libro = Libro::find($id);
+        $idLib= $libro->idLibreria;
+        $libreria = Librerium::find($idLib);
 
-        return view('libro.show', compact('libro'));
+        $a = AutorLibro::select(
+            "autor.nombre_autor",
+            "autor_libro.id"
+        )
+            ->join('autor', 'autor.id', '=', 'autor_libro.idAutor')
+            ->where('autor_libro.idLibro', '=', $id)
+            ->get();
+            $c = CategoriaLibro::select(
+                "categoria.nombre_categoria",
+                "categoria_libro.id"
+            )
+                ->join('categoria', 'categoria.id', '=', 'categoria_libro.idCategoria')
+                ->where('categoria_libro.idLibro', '=', $id)
+                ->get();
+
+
+            /* echo $a;
+        echo "--------------------";
+        foreach ($a as $an) {
+            echo $an->id;
+            echo $an->nombre_autor;
+        }
+*/
+
+    return view('libro.show', compact('libro','a','c','libreria' ));
     }
 
     /**
@@ -76,8 +116,9 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
+        $librerias = Librerium::pluck('nombre_libreria','id');
 
-        return view('libro.edit', compact('libro'));
+        return view('libro.edit', compact('libro','librerias'));
     }
 
     /**
@@ -90,8 +131,21 @@ class LibroController extends Controller
     public function update(Request $request, Libro $libro)
     {
         request()->validate(Libro::$rules);
-
         $libro->update($request->all());
+
+        if ($request->hasfile('foto')) {
+            $destination = 'uploads/libros/' . $libro->foto;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('foto');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/libros/', $filename);
+            $libro->foto = $filename;
+            $libro->save();
+        }
+
 
         return redirect()->route('libros.index')
             ->with('success', 'Libro updated successfully');

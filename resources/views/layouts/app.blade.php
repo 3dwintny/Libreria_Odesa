@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img') }}/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('img') }}/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img') }}/libOdesa.jpg">
+    <link rel="icon" type="image/png" href="{{ asset('img') }}/libOdesa.jpg">
     <title>
         Libreria Odesa
     </title>
@@ -39,7 +39,7 @@
             @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
                 <div class="min-height-300 position-absolute w-100" style="background-color:#0b3c5d;"></div>
             @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
-                <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+                <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://github.com/3dwintny/Libreria_Odesa/blob/main/PortadaXela.jpg?raw=true'); background-position-y: 50%;">
                     <span class="mask opacity-6" style="background-color: #0b3c5d ;"></span>
                 </div>
             @endif

@@ -17,7 +17,7 @@
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-start">
                                     <h4 class="font-weight-bolder">Ingresos</h4>
-                                    <p class="mb-0">Ingrese su correo y contraseña para ingresar</p>
+                                    <p class="mb-0">Escriba su correo y contraseña para ingresar</p>
                                 </div>
                                 <div class="card-body">
                                     <form role="form" method="POST" action="{{ route('login.perform') }}">

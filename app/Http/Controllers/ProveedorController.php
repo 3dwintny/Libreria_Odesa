@@ -9,7 +9,7 @@ class ProveedorController extends Controller
 {
     protected $p;
     public function __construct(Proveedor $p){
-        $this->p = $p;  
+        $this->p = $p;
     }
     /**
      * Display a listing of the resource.
